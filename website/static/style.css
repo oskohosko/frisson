@@ -1,0 +1,67 @@
+
+body {
+    background-color: #071125;
+    color: white;
+    margin: 0;
+    /* Edit this with google font */
+    font-family: "Geologica", sans-serif;
+    font-weight: 400;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar {
+    position: fixed;
+    /* background-color: #1f1f1f; */
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 62px;
+}
+
+.title {
+    color: white;
+    font-weight: 500;
+    padding-left: 5px;
+    margin: 20px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.button {
+    background-color: #112245;
+    border: 3px solid #112245;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+    border: 3px solid white;
+    /* Uncomment below to only have border outline */
+    background-color: white;
+    color: #112245;
+}
