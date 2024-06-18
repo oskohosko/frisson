@@ -64,3 +64,49 @@ h1 {
     background-color: white;
     color: #112245;
 }
+
+.container {
+    margin-left: 120px;
+    padding: 20px;
+    width: 70%;
+}
+
+form {
+    background-color: #112245;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+form .form-label {
+    color: white;
+    padding-left: 5px;
+}
+
+form .form-control {
+    background-color: #071125;
+    border: 2px solid #112245;
+    border-radius: 10px;
+    color: white;
+}
+
+form .form-control:focus {
+    background-color: #071125;
+    border-color: #355cab;
+    color: white;
+    box-shadow: none;
+}
+
+form .btn-primary {
+    background-color: #21407d;
+    border: 1px solid #21407d;
+    color: white;
+    /* margin-left: 3px; */
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+form .btn-primary:hover {
+    background-color: white;
+    border-color: white;
+    color: #112245;
+}
