@@ -26,6 +26,9 @@ def create_app():
     # No background stuff going on
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    db.init_app(app)
+    # db.init_app(app)
 
-    # Going to leave it here. Let's get a base html page up.
+    from .views import views
+    app.register_blueprint(views, url_prefix="/")
+
+    return app
