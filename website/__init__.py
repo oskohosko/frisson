@@ -34,6 +34,12 @@ def create_app():
     from .auth import auth
     app.register_blueprint(auth, url_prefix="/")
 
+    from .dashboard import dashboard_bp
+    app.register_blueprint(dashboard_bp, url_prefix="/")
+
+    from .atelier import atelier_bp
+    app.register_blueprint(atelier_bp, url_prefix="/")
+
     # Creating our database
     from .models import Users
     create_database(app)
