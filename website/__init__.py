@@ -35,7 +35,7 @@ def create_app():
     app.register_blueprint(auth, url_prefix="/")
 
     # Creating our database
-    from .models import User
+    from .models import Users
     create_database(app)
 
     # LoginManager stuff
@@ -46,7 +46,7 @@ def create_app():
     # Looking for a user and use function to load user
     @login_manager.user_loader
     def load_user(id):
-        return User.query.get(int(id))
+        return Users.query.get(int(id))
 
     return app
 

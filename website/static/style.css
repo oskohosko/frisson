@@ -65,7 +65,7 @@ h1 {
     color: #112245;
 }
 
-.container {
+.signup-container {
     margin-left: 120px;
     padding: 20px;
     width: 70%;
@@ -109,4 +109,16 @@ form .btn-primary:hover {
     background-color: white;
     border-color: white;
     color: #112245;
+}
+
+.alert {
+    position: fixed;
+    width: 300px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: aquamarine;
+}
+
+.message {
+    font-size: 19px;
 }
