@@ -14,14 +14,15 @@
 <body>
     <header>
         <div class="sidebar">
-            <h1 class="title">frisson</h1>
+            <a class="title" href="/"><h1>frisson</h1></a>
+            <!-- <h1 class="title">frisson</h1> -->
             <div class="menu">
                 {% if not user.is_authenticated %}
-                <a class="button" id="signup" href="/signup">Sign Up</a>
-                <a class="button" id="login" href="/login">Login</a>
+                <a class="button {% if active == 'signup' %}active{% endif %}" id="signup" href="/signup">Sign Up</a>
+                <a class="button {% if active == 'login' %}active{% endif %}" id="login" href="/login">Login</a>
                 {% else %}
-                <a class="button" id="dashboard" href="/dashboard">Dashboard</a>
-                <a class="button" id="audio_atelier" href="/audio-atelier">Audio Atelier</a>
+                <a class="button {% if active == 'dashboard' %}active{% endif %}" id="dashboard" href="/dashboard">Dashboard</a>
+                <a class="button {% if active == 'atelier' %}active{% endif %}" id="audio_atelier" href="/audio-atelier">Audio Atelier</a>
                 <a class="button" id="logout" href="/logout">Logout</a>
                 {% endif %}
             </div>

@@ -6,4 +6,4 @@ atelier_bp = Blueprint("atelier", __name__)
 @atelier_bp.route("/audio-atelier")
 @login_required
 def atelier():
-    return render_template('atelier.html', user=current_user)
+    return render_template('atelier.html', active="atelier", user=current_user)
