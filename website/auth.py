@@ -51,3 +51,28 @@ def sign_up():
             return redirect(url_for("views.home"))
 
     return render_template("signup.html", user=current_user)
+
+@auth.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        user = Users.query.filter_by(email=email).first()
+        if user:
+            if check_password_hash(user.password, password):
+                flash("Logged in successfully!", category="success")
+                login_user(user, remember=True)
+                return redirect(url_for("views.home"))
+            else:
+                flash("Incorrect password, please try again.", category="error")
+        else:
+            flash("Email does not exist.", category="error")
+
+    return render_template("login.html", user=current_user)
+
+@auth.route("/logout")
+@login_required
+def logout():
+    logout_user()
+    return redirect(url_for("views.home"))
