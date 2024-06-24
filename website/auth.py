@@ -24,7 +24,7 @@ def sign_up():
 
         # User has hit signup
         if form_type == "signup":
-            
+
             # Grabbing all of the fields we need
             name = request.form.get("name")
             email = request.form.get("email")
@@ -54,8 +54,8 @@ def sign_up():
 
                 login_user(new_user, remember=True)
                 flash("Signed up successfully!", category="success")
-                return redirect(url_for("views.home"))
-        
+                return redirect(url_for("dashboard.dashboard"))
+
         elif form_type == "login":
             email = request.form.get("email")
             password = request.form.get("password")
@@ -65,7 +65,7 @@ def sign_up():
                 if check_password_hash(user.password, password):
                     flash("Logged in successfully!", category="success")
                     login_user(user, remember=True)
-                    return redirect(url_for("views.home"))
+                    return redirect(url_for("dashboard.dashboard"))
                 else:
                     flash("Incorrect password, please try again.", category="error")
             else:
@@ -79,4 +79,4 @@ def sign_up():
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("views.home"))
+    return redirect(url_for("auth.sign_up"))

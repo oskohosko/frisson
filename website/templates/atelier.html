@@ -2,4 +2,32 @@
 {% block title %}Audio Atelier{% endblock %}
 
 {% block content %}
+<h1 style="padding-left: 200px;">Audio Atelier</h1>
+<div class="playlist-container">
+    <div class="playlist-form-box">
+        <h2>Add Playlist</h2>
+        <form method="POST" id="add-playlist">
+            <div class="mb-3" style="display:block">
+                <label for="playlist_uri" class="form-label">Playlist URI</label>
+                <i class="fa-solid fa-circle-info fa-lg"
+                   style="float: right; padding-top:10px"
+                   data-bs-toggle="popover"
+                   data-bs-trigger="hover focus"
+                   data-bs-content="Go to share your Spotify playlist. When hovering over 'Share', hold the 'option' key and you will be able to copy your playlist's URI."
+                   title="Playlist URI">
+                </i>
+                <input type="playlist_uri" class="form-control" id="playlist_uri" name="playlist_uri" placeholder="Playlist URI">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+        })
+    })
+</script>
 {% endblock %}
