@@ -7,9 +7,6 @@
     --frisson-outline-color: #21407d;
 }
 
-
-
-
 body {
     background-color: var(--frisson-bg-color);
     color: white;
@@ -145,11 +142,11 @@ form .btn-primary:hover {
 }
 
 #signup-form {
-    padding: 30px;
+    padding: 20px;
 }
 
 #login-form {
-    padding: 30px;
+    padding: 20px;
 }
 
 #add-playlist {

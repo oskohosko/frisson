@@ -8,8 +8,7 @@
         <p>If you already have an account, please login below.</p>
         <p>If not, you can sign up via the form on the right.</p>
         <h2>Login</h2>
-        <form method="POST" id="login-form">
-            <input type="hidden" name="form-type" value="login">
+        <form action="/login" method="POST" id="login-form">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email">
@@ -23,8 +22,7 @@
     </div>
     <div class="form-box" style="border-left: 3px solid #21407d">
         <h2>Sign Up</h2>
-        <form method="POST" id="signup-form">
-            <input type="hidden" name="form-type" value="signup">
+        <form action="/signup" method="POST" id="signup-form">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name">

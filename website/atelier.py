@@ -24,3 +24,4 @@ def atelier():
         name, image, tracks = parse_playlist(playlist_uri)
 
     return render_template('atelier.html', active="atelier", user=current_user, has_submitted=has_submitted, plst_name=name, plst_image=image, tracks=tracks)
+
