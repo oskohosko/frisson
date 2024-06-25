@@ -13,7 +13,7 @@ atelier_bp = Blueprint("atelier", __name__)
 @login_required
 def atelier():
     has_submitted = False
-    name, image = None, None
+    name, image, tracks = None, None, None
     # User has submitted a playlist. So we get the URI
     if request.method == "POST":
         playlist_uri = request.form.get("playlist_uri")
