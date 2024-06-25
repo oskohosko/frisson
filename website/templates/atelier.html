@@ -3,51 +3,58 @@
 
 {% block content %}
 <h1 style="margin-left: 230px;">Audio Atelier</h1>
-<div class="playlist-container">
-    <div class="playlist-form-box">
-        <h2>Add Playlist</h2>
-        <form method="POST" id="add-playlist">
-            <div class="mb-3" style="display:block">
-                <label for="playlist_uri" class="form-label">Playlist URI</label>
-                <i class="fa-solid fa-circle-info fa-lg"
-                   style="float: right; padding-top:10px"
-                   data-bs-toggle="popover"
-                   data-bs-trigger="hover focus"
-                   data-bs-content="Go to share your Spotify playlist. When hovering over 'Share', hold the 'option' key and you will be able to copy your playlist's URI."
-                   title="Playlist URI">
-                </i>
-                <input type="playlist_uri" class="form-control" id="playlist_uri" name="playlist_uri" placeholder="Playlist URI">
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </div>
-    <div class="playlist-box">
-        <h2>Your Playlist</h2>
-        {% if has_submitted %}
-        <div class="added-playlist-container">
-            <div class="submitted-playlist" style="display: flex">
-                <img src="{{ plst_image }}" alt="playlist image" height="122.5" width="122.5">
-                <h3 id="playlist-name">{{ plst_name }}</h3>
-            </div>
-            <div class="tracks-container">
-                <div class="tracks-list">
-                    {% for name, image in tracks %}
-                        <div class="track-box">
-                            <img src="{{ image }}" alt="{{ name }}" height="62" width="62">
-                            <h2 id="track-name">{{ name }}</h2>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="tracks-footer">
-                <button id="conf-plst" type="submit" class="btn btn-primary">Confirm Playlist</button>
+<div class="row">
+    <div class="playlist-container">
+        <div class="col-5">
+            <div class="playlist-form-box">
+                <h2>Add Playlist</h2>
+                <form method="POST" id="add-playlist">
+                    <div class="mb-3" style="display:block">
+                        <label for="playlist_uri" class="form-label">Playlist URI</label>
+                        <i class="fa-solid fa-circle-info fa-lg"
+                        style="float: right; padding-top:10px"
+                        data-bs-toggle="popover"
+                        data-bs-trigger="hover focus"
+                        data-bs-content="Go to share your Spotify playlist. When hovering over 'Share', hold the 'option' key and you will be able to copy your playlist's URI."
+                        title="Playlist URI">
+                        </i>
+                        <input type="playlist_uri" class="form-control" id="playlist_uri" name="playlist_uri" placeholder="Playlist URI">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
         </div>
-        {% else %}
-        <p>Add a playlist via the form on the left.</p>
-        {% endif %}
+        <div class="col-5">
+            <div class="playlist-box">
+                <h2>Your Playlist</h2>
+                {% if has_submitted %}
+                <div class="added-playlist-container">
+                    <div class="submitted-playlist" style="display: flex">
+                        <img src="{{ plst_image }}" alt="playlist image" height="122.5" width="122.5">
+                        <h3 id="playlist-name">{{ plst_name }}</h3>
+                    </div>
+                    <div class="tracks-container">
+                        <div class="tracks-list">
+                            {% for name, image in tracks %}
+                                <div class="track-box">
+                                    <img src="{{ image }}" alt="{{ name }}" height="62" width="62">
+                                    <h2 id="track-name">{{ name }}</h2>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="tracks-footer">
+                        <button id="conf-plst" type="submit" class="btn btn-primary">Confirm Playlist</button>
+                    </div>
+                </div>
+                {% else %}
+                <p>Add a playlist via the form on the left.</p>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>
+
 <script>
     // Popover code
     document.addEventListener("DOMContentLoaded", () => {
