@@ -83,8 +83,7 @@ h1 {
 
 .form-container {
     top: 0;
-    margin-left: 180px;
-    /* padding-left: 20px; */
+    margin-left: 210px;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
@@ -165,8 +164,7 @@ form .btn-primary:hover {
 
 .playlist-container {
     top: 0;
-    margin-left: 180px;
-    /* padding-left: 20px; */
+    margin-left: 200px;
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;

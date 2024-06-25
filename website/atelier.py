@@ -4,7 +4,7 @@ import re
 import os
 from dotenv import load_dotenv
 
-from playlist_analysis import analyse_playlist
+from website.playlist_analysis import analyse_playlist
 
 
 atelier_bp = Blueprint("atelier", __name__)
