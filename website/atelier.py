@@ -13,6 +13,7 @@ atelier_bp = Blueprint("atelier", __name__)
 @login_required
 def atelier():
     has_submitted = False
+    name, image = None, None
     # User has submitted a playlist. So we get the URI
     if request.method == "POST":
         playlist_uri = request.form.get("playlist_uri")
@@ -20,7 +21,6 @@ def atelier():
         # Regular expression to match playlist URIs against
         uri_re = r"spotify:playlist:[a-zA-Z0-9]+"
         has_submitted = True
-        name, image = parse_playlist(playlist_uri)
+        name, image, tracks = parse_playlist(playlist_uri)
 
-
-    return render_template('atelier.html', active="atelier", user=current_user, has_submitted=has_submitted, plst_name=name, plst_image=image)
+    return render_template('atelier.html', active="atelier", user=current_user, has_submitted=has_submitted, plst_name=name, plst_image=image, tracks=tracks)

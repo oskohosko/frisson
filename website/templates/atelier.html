@@ -24,15 +24,31 @@
     <div class="playlist-box">
         <h2>Your Playlist</h2>
         {% if has_submitted %}
-        <div class="submitted-playlist" style="display: flex">
-            <img src="{{ plst_image }}" alt="playlist image" height="122.5" width="122.5">
-            <h3 id="playlist-name">{{ plst_name }}</h3>
+        <div class="added-playlist-container">
+            <div class="submitted-playlist" style="display: flex">
+                <img src="{{ plst_image }}" alt="playlist image" height="122.5" width="122.5">
+                <h3 id="playlist-name">{{ plst_name }}</h3>
+            </div>
+            <div class="tracks-container">
+                <div class="tracks-list">
+                    {% for name, image in tracks %}
+                        <div class="track-box">
+                            <img src="{{ image }}" alt="{{ name }}" height="62" width="62">
+                            <h2 id="track-name">{{ name }}</h2>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="tracks-footer">
+                <button id="conf-plst" type="submit" class="btn btn-primary">Confirm Playlist</button>
+            </div>
         </div>
         {% else %}
         {% endif %}
     </div>
 </div>
 <script>
+    // Popover code
     document.addEventListener("DOMContentLoaded", () => {
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {

@@ -2,8 +2,14 @@
 This file contains the various functions used when parsing my api call and analysing the playlists.
 """
 import os
+import sys
 import spotipy
+import spotipy.util as util
 from spotipy.oauth2 import SpotifyClientCredentials
+
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Setting up Spotipy to make the API calls easier
 client_id = os.getenv("CLIENT_ID")
@@ -19,9 +25,17 @@ def parse_playlist(uri):
     """
     # Playlist id
     playlist_id = uri.split(":")[2]
-    results = sp.playlist(playlist_id, fields='name,images')
+    results = sp.playlist(playlist_id, fields='name,images,tracks')
 
-    image = results['images'][0]['url']
-    name = results['name']
+    playlist_name = results['name']
+    playlist_image = results['images'][0]['url']
 
-    return name, image
+    # Getting the track names
+    track_names = [track['track']['name'] for track in results['tracks']['items']]
+
+    # Now I want to get the track's images
+    # These are accessed from the album they are in
+    track_images = [track['track']['album']['images'][0]['url'] for track in results['tracks']['items']]
+
+
+    return playlist_name, playlist_image, zip(track_names, track_images)
