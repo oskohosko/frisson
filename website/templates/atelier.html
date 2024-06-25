@@ -21,6 +21,16 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
+    <div class="playlist-box">
+        <h2>Your Playlist</h2>
+        {% if has_submitted %}
+        <div class="submitted-playlist" style="display: flex">
+            <img src="{{ plst_image }}" alt="playlist image" height="122.5" width="122.5">
+            <h3 id="playlist-name">{{ plst_name }}</h3>
+        </div>
+        {% else %}
+        {% endif %}
+    </div>
 </div>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
