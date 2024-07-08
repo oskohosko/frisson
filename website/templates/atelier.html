@@ -35,10 +35,12 @@
                     </div>
                     <div class="tracks-container">
                         <div class="tracks-list">
-                            {% for name, image in tracks %}
+                            {% for name, artists, image in tracks %}
                                 <div class="track-box">
                                     <img src="{{ image }}" alt="{{ name }}" height="62" width="62">
                                     <h2 id="track-name">{{ name }}</h2>
+                                    <!-- <br>
+                                    <h3 id="track-artists">{{ artists }}</h3> -->
                                 </div>
                             {% endfor %}
                         </div>

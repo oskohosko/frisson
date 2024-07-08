@@ -37,5 +37,13 @@ def parse_playlist(uri):
     # These are accessed from the album they are in
     track_images = [track['track']['album']['images'][0]['url'] for track in results['tracks']['items']]
 
+    # Now we need to get the audio features for each track.
+    track_ids = [track['track']['id'] for track in results['tracks']['items']]
 
-    return playlist_name, playlist_image, zip(track_names, track_images)
+    # audio_features = sp.audio_features(track_ids)
+
+    track_artists = [[artist['name'] for artist in track['track']['artists']] for track in results['tracks']['items']]
+    print(track_artists)
+
+
+    return playlist_name, playlist_image, zip(track_names, track_artists, track_images)
